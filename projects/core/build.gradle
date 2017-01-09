@@ -1,0 +1,76 @@
+//-------------------------------------------------------------------------------------------------
+// PLUGINS.
+//-------------------------------------------------------------------------------------------------
+
+buildscript {
+    repositories {
+        if (project.hasProperty("maven.local")) {
+            mavenLocal()
+        }
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${project.ext.kotlinVersion}"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${project.ext.dokkaVersion}"
+    }
+}
+
+apply(plugin: "kotlin")
+apply(plugin: "org.jetbrains.dokka")
+
+//-------------------------------------------------------------------------------------------------
+// SOURCE SETS.
+//-------------------------------------------------------------------------------------------------
+
+sourceSets {
+    main {
+        java.srcDirs = ["src"]
+        kotlin.srcDirs = ["src"]
+        resources.srcDirs = ["src"]
+    }
+    test {
+        java.srcDirs = ["test"]
+        kotlin.srcDirs = ["test"]
+        resources.srcDirs = ["test"]
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+// REPOSITORIES.
+//-------------------------------------------------------------------------------------------------
+
+repositories {
+    if (project.hasProperty("maven.local")) {
+        mavenLocal()
+    }
+    jcenter()
+    mavenCentral()
+}
+
+//-------------------------------------------------------------------------------------------------
+// DEPENDENCIES.
+//-------------------------------------------------------------------------------------------------
+
+// main source dependencies.
+dependencies {
+    // kotlin standard library.
+    compile "org.jetbrains.kotlin:kotlin-stdlib:${project.ext.kotlinVersion}"
+    compile "org.jetbrains.kotlin:kotlin-reflect:${project.ext.kotlinVersion}"
+}
+
+// test source dependencies.
+dependencies {
+    // test frameworks and libraries.
+    testCompile "io.damo.aspen:aspen:2.0.0"
+    testCompile "com.winterbe:expekt:0.5.0"
+    testCompile "com.nhaarman:mockito-kotlin:0.8.0"
+}
+
+//-------------------------------------------------------------------------------------------------
+// CONFIGURATION.
+//-------------------------------------------------------------------------------------------------
+
+dokka {
+    outputFormat = "javadoc"
+}

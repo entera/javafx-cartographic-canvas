@@ -1,0 +1,17 @@
+// name of root project.
+rootProject.name = "javafx-cartographic-canvas"
+
+// include project directories.
+def buildScripts = fileTree(".")
+    .include("projects/*/build.gradle")
+    .include("samples/*/build.gradle")
+    .collect { relativePath(it.parent) }
+buildScripts.each { include(it) }
+
+// location of the build files.
+rootProject.children.each { project ->
+    def projectDir = new File(project.name)
+    project.name = "$projectDir.parent/$projectDir.name"
+    project.projectDir = projectDir
+    project.buildFileName = "build.gradle"
+}
