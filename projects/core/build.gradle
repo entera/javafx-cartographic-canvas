@@ -75,16 +75,20 @@ dependencies {
     compile "com.github.thomasnield:rxkotlinfx:1.0.0"
     compile "io.reactivex:rxkotlin:0.60.0"
 
-    compile "org.reactfx:reactfx:2.0-M5"
-    compile "com.netopyr.reduxfx:reduxfx:0.1.0"
+//    compile "org.reactfx:reactfx:2.0-M5"
+//    compile "com.netopyr.reduxfx:reduxfx:0.1.0"
 }
 
 // test source dependencies.
 dependencies {
     // test frameworks and libraries.
-    testCompile "io.damo.aspen:aspen:2.0.0"
-    compile "com.winterbe:expekt:0.5.0"
-    testCompile "com.nhaarman:mockito-kotlin:0.8.0"
+//    testCompile "io.damo.aspen:aspen:2.0.0"
+//    testCompile "com.nhaarman:mockito-kotlin:0.8.0"
+
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.0.0-M3"
+    testCompile "org.junit.jupiter:junit-jupiter-api:5.0.0-M3"
+    testCompile "com.winterbe:expekt:0.5.0"
+    testCompile "org.testfx:testfx-core:4.0.4-alpha"
 }
 
 //-------------------------------------------------------------------------------------------------
