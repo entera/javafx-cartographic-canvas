@@ -1,14 +1,14 @@
 package hastebrot.cartocanvas
 
 import javafx.application.Application
-import javafx.application.Platform
-import javafx.geometry.Dimension2D
 import javafx.scene.Scene
 import javafx.scene.input.KeyCode
 import tornadofx.App
+import tornadofx.Stylesheet
 import tornadofx.UIComponent
 import tornadofx.View
 import tornadofx.Workspace
+import tornadofx.px
 import tornadofx.stackpane
 
 //-------------------------------------------------------------------------------------------------
@@ -19,24 +19,15 @@ fun main(args: Array<String>) {
     Application.launch(WorkspaceApp::class.java)
 }
 
-class WorkspaceApp : App(Workspace::class) {
-
-    //---------------------------------------------------------------------------------------------
-    // PRIVATE PROPERTIES.
-    //---------------------------------------------------------------------------------------------
-
-    private val sceneDimension = Dimension2D(800.0, 600.0)
+class WorkspaceApp : App(Workspace::class, WorkspaceStyles::class) {
 
     //---------------------------------------------------------------------------------------------
     // FUNCTIONS.
     //---------------------------------------------------------------------------------------------
 
     override fun createPrimaryScene(view: UIComponent): Scene {
-        return Scene(view.root, sceneDimension.width, sceneDimension.height).apply {
-            Platform.runLater {
-                registerEscapeKeyHandler(this)
-//                window.centerOnScreen()
-            }
+        return Scene(view.root).apply {
+            registerEscapeKeyHandler(this)
         }
     }
 
@@ -49,16 +40,29 @@ class WorkspaceApp : App(Workspace::class) {
     //---------------------------------------------------------------------------------------------
 
     private fun registerEscapeKeyHandler(scene: Scene) {
-//        scene.addEventHandler(KeyEvent.KEY_RELEASED) {
         scene.setOnKeyReleased {
-            when {
-                it.code == KeyCode.ESCAPE -> scene.window.hide()
+            when (it.code) {
+                KeyCode.ESCAPE -> scene.window.hide()
+                else -> Unit
             }
         }
     }
-}
 
-class WorkspaceView : View("Workspace") {
-    override val root = stackpane {}
+    //---------------------------------------------------------------------------------------------
+    // CLASSES.
+    //---------------------------------------------------------------------------------------------
+
+    class WorkspaceView : View("Workspace") {
+        override val root = stackpane {}
+    }
+
+    class WorkspaceStyles : Stylesheet() {
+        init {
+            root {
+                prefWidth = 800.px
+                prefHeight = 600.px
+            }
+        }
+    }
 }
 
