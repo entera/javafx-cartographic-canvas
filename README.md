@@ -32,28 +32,33 @@ $ ./gradlew :projects/core:run
 
 ## Components
 
-- APP: WorkspaceApp
-- VIEW: WorkspaceView
+- `app.kt`:
+  - APP: WorkspaceApp
+  - VIEW: WorkspaceView
 
-- VIEW: ShapefileListerView
-- VIEW: ShapefileLoaderView
-- SERVICE: ShapefileLoaderService
-- MODEL: ShapefileLister
+- `loader.kt`:
+  - VIEW: ShapefileListerView
+  - VIEW: ShapefileLoaderView
+  - SERVICE: ShapefileLoaderService
+  - MODEL: ShapefileLister
+ 
+- `info.kt`:
+  - VIEW: ShapefileInfoView
+  - VIEW: ShapefileBoundsView
+  - SERVICE: ShapefileInfoService
+  - MODEL: ShapefileInfo
 
-- VIEW: ShapefileInfoView
-- VIEW: ShapefileBoundsView
-- SERVICE: ShapefileInfoService
-- MODEL: ShapefileInfo
+- `map.kt`:
+  - VIEW: MapCanvasView
+  - SERVICE: ScaleService / ViewportService
+  - SERVICE: RenderService
+  - MODEL: Scale
+  - MODEL: Bounds
+  - MODEL: Style
 
-- VIEW: MapCanvasView
-- SERVICE: ScaleService / ViewportService
-- SERVICE: RenderService
-- MODEL: Scale
-- MODEL: Bounds
-- MODEL: Style
-
-- SERVICE: WindowService
-- SERVICE: MouseService
+- `nav.kt`:
+  - SERVICE: WindowService
+  - SERVICE: MouseService
 
 ## Tools
 

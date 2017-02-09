@@ -1,3 +1,5 @@
+## 0.3.0 / To be released
+
 ## 0.2.0 / Feb 9, 2017
 
 - (feat) Workspace: Introduce `WorkspacePrefs` controller which can be injected into components.
