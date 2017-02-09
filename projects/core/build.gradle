@@ -84,8 +84,8 @@ dependencies {
     compile "com.github.thomasnield:rxkotlinfx:1.0.0"
     compile "io.reactivex:rxkotlin:0.60.0"
 
-//    compile "org.reactfx:reactfx:2.0-M5"
-//    compile "com.netopyr.reduxfx:reduxfx:0.1.0"
+    // platform libraries.
+    compile "com.moandjiezana.toml:toml4j:0.7.1"
 }
 
 // test source dependencies.

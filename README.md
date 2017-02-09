@@ -1,13 +1,13 @@
 # javafx-cartographic-canvas
 
-Clone repositories:
+Clone project and geodata repositories:
 
 ~~~
 $ git clone https://github.com/hastebrot/javafx-cartographic-canvas
 $ git clone https://github.com/hastebrot/geodata-eu-us-world
 ~~~
 
-Build and run application:
+Build and run the application ([Install Oracle JDK on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)):
 
 ~~~
 $ cd javafx-cartographic-canvas
@@ -25,10 +25,37 @@ $ ./gradlew :projects/core:run
 ## Tasks
 
 - [X] 1. Load shapefiles within directory structure
-- [X] 2. Calculate bounds of all shapefiles
+- [X] 2. Calculate hastebrot.cartocanvas.util.bounds of all shapefiles
 - [X] 3. Render all geometries on canvas
-- [o] 4. Re-render after user interaction
-  - [X] On window resize
-  - [ ] On mouse interaction
+- [ ] 4. Re-render after window resize and mouse interaction
 - [ ] 5. Orchestrate all components
 
+## Components
+
+- APP: WorkspaceApp
+- VIEW: WorkspaceView
+
+- VIEW: ShapefileListerView
+- VIEW: ShapefileLoaderView
+- SERVICE: ShapefileLoaderService
+- MODEL: ShapefileLister
+
+- VIEW: ShapefileInfoView
+- VIEW: ShapefileBoundsView
+- SERVICE: ShapefileInfoService
+- MODEL: ShapefileInfo
+
+- VIEW: MapCanvasView
+- SERVICE: ScaleService / ViewportService
+- SERVICE: RenderService
+- MODEL: Scale
+- MODEL: Bounds
+- MODEL: Style
+
+- SERVICE: WindowService
+- SERVICE: MouseService
+
+## Tools
+
+- cd: class diagram
+- sd: sequence diagram
